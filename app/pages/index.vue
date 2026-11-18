@@ -5,7 +5,7 @@
       with your <mark>favorite songs</mark>
     </h1>
     <div class="main_page__searchbar">
-      <SongSearchbar />
+      <SongSearchbar :enable-word-rotation="true" />
     </div>
     <span class="lead">
       or
