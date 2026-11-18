@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <BackgroundWave />
-    <main class="app_container">
+    <main class="app_container custom_scroll">
       <SiteHeader />
       <slot />
     </main>

@@ -26,3 +26,33 @@
 
     --background-color: hsla(var(--base-color-background), 95%, 80%);
 }
+
+.custom_scroll {
+    & {
+    --sb-track-color: var(--color-primary-opace);
+    --sb-thumb-color: var(--color-primary);
+    --sb-size: 10px;
+    }
+
+    &::-webkit-scrollbar {
+    width: var(--sb-size)
+    }
+
+    &::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 16px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 16px;
+    
+    }
+
+    @supports not selector(::-webkit-scrollbar) {
+    & {
+        scrollbar-color: var(--sb-thumb-color)
+                        var(--sb-track-color);
+    }
+    }
+}
