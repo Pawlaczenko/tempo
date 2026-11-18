@@ -49,6 +49,7 @@
 	.iconify {
 		font-size: var(--icon-size);
 		color: var(--icon-color);
+		transition: color 0.2s ease-in-out;
 	}
 
 	&--secondary {

@@ -1,25 +1,57 @@
 <template>
   <div class="background-wave">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <linearGradient id="linear-gradient" x1="0.026" y1="-0.23" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-          <stop offset="0" stop-color="#f08456"/>
-          <stop offset="1" stop-color="#ffb99b"/>
-        </linearGradient>
-        <linearGradient id="linear-gradient-2" x1="0.588" y1="1.059" x2="1.032" y2="-0.092" gradientUnits="objectBoundingBox">
-          <stop offset="0" stop-color="#f08456"/>
-          <stop offset="1" stop-color="#ffc4ab"/>
-        </linearGradient>
-        <clipPath id="clip-Web_1920_1">
-          <rect width="1920" height="1080"/>
-        </clipPath>
-      </defs>
-      <g id="Web_1920_1" data-name="Web 1920 1" clip-path="url(#clip-Web_1920_1)">
-        <rect width="1920" height="1080" fill="#fff"/>
-        <path class="wave wave--left" id="Path_1" data-name="Path 1" d="M0,0H136.089s197.463,42.684,58.705,98.707,149.432,48.02,85.389,128.052,114.742,80.033,184.121,53.355S576.379,413.5,432.284,458.853,987.315,923.042,664.437,917.706,522.618,1080,522.618,1080H-.719Z" fill="url(#linear-gradient)"/>
-        <path class="wave wave--right" id="Path_2" data-name="Path 2" d="M1920,0s-225.552-15.961-228.221,63.846S1977.3,231.436,1835.874,215.475,1699.785,239.417,1723.8,287.3s58.705,82.467,0,117.05-181.453,122.371-133.421,194.2,194.795,180.9,69.379,226.12-362.905-172.915-290.858,0,82.721,191.537,18.679,207.5S1280,1078.693,1280,1078.693l641.538-.558Z" fill="url(#linear-gradient-2)"/>
-      </g>
-    </svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.026" y1="-0.23" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f08456"/>
+      <stop offset="1" stop-color="#ffb99b"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.588" y1="1.059" x2="1.032" y2="-0.092" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f08456"/>
+      <stop offset="1" stop-color="#ffc4ab"/>
+    </linearGradient>
+    <clipPath id="clip-Web_1920_1">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_1" data-name="Web 1920 1" clip-path="url(#clip-Web_1920_1)">
+    <rect width="1920" height="1080" fill="#fff"/>
+
+    <path class="wave wave--left" id="Path_1" data-name="Path 1"
+      d="M0,0H136.089s197.463,42.684,58.705,98.707,149.432,48.02,85.389,128.052,114.742,80.033,184.121,53.355S576.379,413.5,432.284,458.853,987.315,923.042,664.437,917.706,522.618,1080,522.618,1080H-.719Z"
+      fill="url(#linear-gradient)">
+      <animate
+        attributeName="d"
+        dur="9s"
+        repeatCount="indefinite"
+        calcMode="spline"
+        keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
+        values="
+          M0,0H136.089s197.463,42.684,58.705,98.707,149.432,48.02,85.389,128.052,114.742,80.033,184.121,53.355S576.379,413.5,432.284,458.853,987.315,923.042,664.437,917.706,522.618,1080,522.618,1080H-.719Z;
+          M0,0H136.089s157.463,62.684,38.705,98.707,169.432,28.02,105.389,128.052,94.742,100.033,164.121,53.355S596.379,393.5,452.284,458.853,947.315,943.042,684.437,917.706,522.618,1080,522.618,1080H-.719Z;
+          M0,0H136.089s197.463,42.684,58.705,98.707,149.432,48.02,85.389,128.052,114.742,80.033,184.121,53.355S576.379,413.5,432.284,458.853,987.315,923.042,664.437,917.706,522.618,1080,522.618,1080H-.719Z"
+      />
+    </path>
+
+    <path class="wave wave--right" id="Path_2" data-name="Path 2"
+      d="M1920,0s-225.552-15.961-228.221,63.846S1977.3,231.436,1835.874,215.475,1699.785,239.417,1723.8,287.3s58.705,82.467,0,117.05-181.453,122.371-133.421,194.2,194.795,180.9,69.379,226.12-362.905-172.915-290.858,0,82.721,191.537,18.679,207.5S1280,1078.693,1280,1078.693l641.538-.558Z"
+      fill="url(#linear-gradient-2)">
+      <animate
+        attributeName="d"
+        dur="11s"
+        repeatCount="indefinite"
+        calcMode="spline"
+        keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
+        values="
+          M1920,0s-225.552-15.961-228.221,63.846S1977.3,231.436,1835.874,215.475,1699.785,239.417,1723.8,287.3s58.705,82.467,0,117.05-181.453,122.371-133.421,194.2,194.795,180.9,69.379,226.12-362.905-172.915-290.858,0,82.721,191.537,18.679,207.5S1280,1078.693,1280,1078.693l641.538-.558Z;
+          M1920,0s-245.552-35.961-208.221,63.846S1957.3,251.436,1815.874,215.475,1719.785,219.417,1743.8,287.3s78.705,62.467,20,117.05-161.453,142.371-113.421,194.2,174.795,200.9,49.379,226.12-342.905-152.915-310.858,0,62.721,211.537,38.679,187.5S1300,1078.693,1280,1078.693l641.538-.558Z;
+          M1920,0s-225.552-15.961-228.221,63.846S1977.3,231.436,1835.874,215.475,1699.785,239.417,1723.8,287.3s58.705,82.467,0,117.05-181.453,122.371-133.421,194.2,194.795,180.9,69.379,226.12-362.905-172.915-290.858,0,82.721,191.537,18.679,207.5S1280,1078.693,1280,1078.693l641.538-.558Z"
+      />
+    </path>
+  </g>
+</svg>
   </div>
 </template>
 

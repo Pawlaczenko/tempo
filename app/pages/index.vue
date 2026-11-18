@@ -23,6 +23,16 @@
 
 <style scoped lang="scss">
   .main_page {
+
+    & > * {
+      animation: fade-in 0.3s ease-in-out backwards;
+
+      &:nth-child(1) { animation-delay: 0s; }
+      &:nth-child(2) { animation-delay: 0.05s; }
+      &:nth-child(3) { animation-delay: 0.1s; }
+      &:nth-child(4) { animation-delay: 0.15s; }
+    }
+
     h1 {
       margin-bottom: 3rem;
     }
