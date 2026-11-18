@@ -2,6 +2,7 @@
   <div class="page">
     <BackgroundWave />
     <main class="app_container">
+      <SiteHeader />
       <slot />
     </main>
   </div>

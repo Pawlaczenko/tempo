@@ -19,6 +19,8 @@ export default defineNuxtConfig({
           @use "~/assets/scss/_variables.scss" as *;
           @use "~/assets/scss/_mixins.scss" as *;
           @use "~/assets/scss/_reset.scss" as *;
+          @use "~/assets/scss/_typography.scss" as *;
+          @use "~/assets/scss/_buttons.scss" as *;
         `,
         },
       },
