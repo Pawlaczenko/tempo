@@ -48,6 +48,8 @@ export default defineNuxtConfig({
 
   // --- Zmienne środowiskowe ---
   runtimeConfig: {
+    lrclibAppId: '',
+    lrclibApiKey: '',
     public: {
       siteUrl: 'http://localhost:3000',
     },

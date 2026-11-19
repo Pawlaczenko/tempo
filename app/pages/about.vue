@@ -5,7 +5,7 @@
         About <mark>Tempo</mark>
       </h1>
       <p class="text-xl decorated">
-        Tempo turns the lyrics you love into a typing test. Search by song title, artist, or album, choose a track, and see how quickly—and accurately—you can type it.
+        Tempo turns the lyrics you love into a typing test. Search by song title, artist, or album, choose a track, and see how quickly and accurately you can type it.
       </p>
       <p class="text-xl decorated">
         Type the lyrics as quickly as you can. Five keystrokes count as one word, and every misspelled character counts as one error. Your words-per-minute (WPM) score is calculated using this equation:
@@ -21,7 +21,7 @@
       </p>
       <SiteButton class="" :variant="'secondary'">
         Try the Song of the Day
-        <Icon name="lucide:audio-waveform" class="song-searchbar__icon" aria-hidden="true" />
+        <Icon name="lucide:audio-waveform" class="song-searachbar__icon" aria-hidden="true" />
       </SiteButton>
     </div>
   </div>
