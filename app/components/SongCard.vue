@@ -24,7 +24,7 @@ const coverStyle = computed(() => ({
 </script>
 
 <template>
-  <NuxtLink :to="`/play/${song.id}`" class="song-card">
+  <NuxtLink :to="`/song/${song.id}`" class="song-card">
     <span class="song-card__cover" :style="coverStyle" aria-hidden="true">
       {{ coverLetter }}
     </span>
