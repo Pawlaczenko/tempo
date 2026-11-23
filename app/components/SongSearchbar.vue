@@ -29,16 +29,20 @@
         enableWordRotation: false
     });
 
-    const searchQuery = ref('');
+    const { query, search } = useSongSearch()
+    
+    const searchQuery = ref(query.value || '');
+
+    watch(query, (value) => { searchQuery.value = value })
+
+    const handleSearch = () => search(searchQuery.value)
+
+    // ROTATING WORDS
     const currentWordIndex = ref(0);
     const ROTATION_SPEED = 2500; // 2.5 seconds
-
+        
     const rotatingWords : string[] = ['a song', 'an artist', 'an album'];
     const currentWord = computed(() => rotatingWords[currentWordIndex.value]);
-
-    const handleSearch = () => {
-        console.log('Searching for:', searchQuery.value);
-    };
 
     onMounted(() => {
         if (props.enableWordRotation) {

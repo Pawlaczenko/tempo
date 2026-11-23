@@ -10,8 +10,16 @@ export default defineCachedEventHandler(async (event): Promise<SongSummary[]> =>
 
   const results = await lrclibFetch<LrclibTrack[]>(event, '/api/search', { q: query })
 
+  const seen = new Set<string>()
+
   return results
     .filter(r => !r.instrumental && r.plainLyrics)
+    .filter((r) => {
+      const key = `${r.artistName}|${r.trackName}`.toLowerCase()
+      if (seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
     .map(r => ({
       id: r.id,
       track: r.trackName,
