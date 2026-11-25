@@ -20,3 +20,7 @@ export interface SongSummary {
 export interface SongLyrics extends SongSummary {
   lyrics: string
 }
+
+// shared/types
+export type Status = 'idle' | 'correct' | 'wrong'
+export interface Letter { char: string; index: number }

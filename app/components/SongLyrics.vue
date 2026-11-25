@@ -1,14 +1,26 @@
 <template>
-  <div class="song-lyrics">
-    <div v-for="(line, li) in lines" :key="li" class="song-lyrics__line">
+  <div 
+    ref="root" 
+    class="song-lyrics"
+    :class="{'song-lyrics--blurred': !focused}"
+    tabindex="0"
+    role="textbox"
+    aria-label="Type song lyrics here"
+    @keydown="emit('key', $event)"
+    @focus="focused = true"
+    @blur="focused = false"
+    >
+    <div v-for="(line, li) in props.lines" :key="li" class="song-lyrics__line">
       <span v-for="(word, wi) in line" :key="wi">
         <span
           v-for="letter in word"
           :key="letter.index"
           class="letter"
           :class="{
-            'letter-idle': letter.index >= cursor,
-            'letter-active': letter.index === cursor,
+            'letter-idle': letter.index >= props.cursor,
+            'letter-active': letter.index === props.cursor,
+            'letter-correct': props.statuses[letter.index] === 'correct',
+            'letter-wrong': props.statuses[letter.index] === 'wrong',
           }"
         >
           <Icon
@@ -25,24 +37,29 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps<{ lyrics: string }>();
+  import type { Letter, Status } from '#shared/types'
 
-  interface Letter { char: string; index: number }
+  interface SongLyricsProps {
+    lines: Letter[][][],
+    cursor: number,
+    statuses: Status[]
+  }
+  const props = defineProps<SongLyricsProps>();
 
-  const lines = computed<Letter[][][]>(() => {
-    let i = 0
-    return props.lyrics.split('\n').map(line => [
-      ...line.trim().split(' ').map(word =>
-        [...(word + ' ')].map(char => ({ char, index: i++ }))
-      ),
-      [{ char: '\n', index: i++ }],
-    ])
-  })
+  const emit = defineEmits<{key: [e: KeyboardEvent]}>();
 
-  const cursor = ref(0);
+  const root = ref<HTMLElement>();
+  const focused = ref(false);
+
+  defineExpose({focus: () => root.value?.focus({preventScroll: true})});
 
   onMounted(() => {
-    console.log(lines);
+    root.value?.focus({preventScroll: true});
+  });
+
+  watch(() => props.cursor, async () => {
+    await nextTick();
+    root.value?.querySelector('.letter-active')?.scrollIntoView({block: 'center', behavior: 'smooth'});
   })
 
 </script>
@@ -57,6 +74,12 @@
     border-radius: 1.4rem;
     margin-top: 1.6rem;
 
+    position: relative;
+    outline: none;
+    &:focus-visible { box-shadow: 0 0 0 3px var(--color-primary, #4c9ffe); }
+
+    &--blurred .song-lyrics__line { filter: blur(2px); }
+
     .letter {
       position: relative;
       &::after {
@@ -70,14 +93,14 @@
         opacity: 0;
       }
 
-      &-idle {
-        color: rgba(0, 0, 0, 0.6);
-      }
       &-correct {
         color: var(--color-correct);
       }
-      &--wrong {
+      &-wrong {
         color: var(--color-warning);
+      }
+      &-idle {
+        color: rgba(0, 0, 0, 0.6);
       }
       &-active {
         &::after {
