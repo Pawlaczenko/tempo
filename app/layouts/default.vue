@@ -39,7 +39,7 @@
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
     row-gap: 4.8rem;
   }
 </style>

@@ -66,8 +66,17 @@
 
 <style lang="scss" scoped>
   .song-lyrics {
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     font-family: var(--font-family-secondary);
-    font-size: 2rem;
+    font-size: 3.2rem;
 
     background: rgba(255, 255, 255, 0.72);
     padding: 1.4rem;
@@ -95,9 +104,11 @@
 
       &-correct {
         color: var(--color-correct);
+        background-color: var(--color-correct-opace);
       }
       &-wrong {
         color: var(--color-warning);
+        background-color: var(--color-warning-opace);
       }
       &-idle {
         color: rgba(0, 0, 0, 0.6);
@@ -108,10 +119,12 @@
           animation: underline 1s linear infinite;
         }
       }
-      &.letter__enter {
+      &__enter {
         width: 1em;
         height: 1em;
         vertical-align: -0.125em;
+        display: inline-block;
+        margin-left: 1ch;
       }
     }
     @keyframes underline {

@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="song-page">
     <LoadingSpinner v-if="status === 'pending'" />
     <p v-else-if="error" class="text-md">
       {{ errorMessage }}
     </p>
-    <div v-else-if="song">
-      <p class="text-md font-bold">
+    <div v-else-if="song" class="song-page__content">
+      <p class="song-page__title text-md font-bold">
         {{ song.track }} by {{ song.artist }}
       </p>
       <SongLyrics
@@ -31,6 +31,8 @@
         { watch: [songId], default: () => null, lazy: true },
     )
 
+    console.log(song.value)
+
     const errorMessage = computed(() =>
     error.value?.status === 404
         ? 'Lyrics not found for this song.'
@@ -41,3 +43,21 @@
     const lyricsRef = ref<{ focus: () => void }>();
 
 </script>
+
+<style lang="scss" scoped>
+.song-page {
+  min-height: 0;
+  height: 100%;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    height: 100%;
+  }
+
+  &__title {
+    flex: none;
+  }
+}
+</style>
